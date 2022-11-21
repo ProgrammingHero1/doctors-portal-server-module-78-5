@@ -239,6 +239,8 @@ async function run() {
         app.post('/users', async (req, res) => {
             const user = req.body;
             console.log(user);
+            // TODO: make sure you do not enter duplicate user email
+            // only insert users if the user doesn't exist in the database
             const result = await usersCollection.insertOne(user);
             res.send(result);
         });
